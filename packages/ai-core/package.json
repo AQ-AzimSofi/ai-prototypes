@@ -1,0 +1,37 @@
+{
+  "name": "@ai-prototypes/ai-core",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./gemini": "./src/gemini/index.ts",
+    "./rag": "./src/rag/index.ts",
+    "./gcp-vision": "./src/gcp-vision/index.ts",
+    "./gcp-document-ai": "./src/gcp-document-ai/index.ts",
+    "./aws-rekognition": "./src/aws-rekognition/index.ts",
+    "./aws-textract": "./src/aws-textract/index.ts"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^1.1.0",
+    "@aws-sdk/client-rekognition": "^3.700.0",
+    "@aws-sdk/client-textract": "^3.700.0",
+    "@google-cloud/documentai": "^8.0.0",
+    "@google-cloud/vision": "^4.0.0",
+    "@mastra/core": "^0.10.5",
+    "@mastra/rag": "^0.1.14",
+    "ai": "^4.1.0",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "@ai-prototypes/typescript-config": "workspace:*",
+    "@types/node": "^22.0.0",
+    "@types/pdf-parse": "^1.1.4",
+    "typescript": "^5.7.0"
+  }
+}
