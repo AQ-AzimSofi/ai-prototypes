@@ -26,12 +26,14 @@
     "@mastra/core": "^0.10.5",
     "@mastra/rag": "^0.1.14",
     "ai": "^4.1.0",
-    "pdf-parse": "^1.1.1"
+    "pdf-parse": "^1.1.1",
+    "pg": "^8.16.3"
   },
   "devDependencies": {
     "@ai-prototypes/typescript-config": "workspace:*",
     "@types/node": "^22.0.0",
     "@types/pdf-parse": "^1.1.4",
+    "@types/pg": "^8.16.0",
     "typescript": "^5.7.0"
   }
 }
