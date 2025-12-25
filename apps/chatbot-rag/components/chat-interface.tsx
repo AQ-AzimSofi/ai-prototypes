@@ -2,18 +2,26 @@
 
 import { useChat } from "ai/react";
 import { Button, Textarea, MarkdownRenderer, LoadingSpinner } from "@ai-prototypes/ui";
-import { Send, Bot, User } from "lucide-react";
+import { Send, Bot, User, BookOpen, FileText } from "lucide-react";
 import { useRef, useEffect } from "react";
+import { type PersonaType } from "@/lib/types";
 
 interface ChatInterfaceProps {
-  context: string;
+  persona: PersonaType;
+  context?: string;
+  currentVolume?: number;
   disabled?: boolean;
 }
 
-export function ChatInterface({ context, disabled }: ChatInterfaceProps) {
+export function ChatInterface({
+  persona,
+  context,
+  currentVolume,
+  disabled,
+}: ChatInterfaceProps) {
   const { messages, input, handleInputChange, handleSubmit, isLoading } =
     useChat({
-      body: { context },
+      body: { context, persona, currentVolume },
     });
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -39,13 +47,27 @@ export function ChatInterface({ context, disabled }: ChatInterfaceProps) {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
-            <Bot className="h-12 w-12 mb-4" />
-            <h2 className="text-lg font-medium mb-2">Start a conversation</h2>
-            <p className="text-sm max-w-md">
-              {context
-                ? "Your document is loaded. Ask any question about its contents!"
-                : "Upload a PDF document or just start chatting with the AI."}
-            </p>
+            {persona === "novel" ? (
+              <>
+                <BookOpen className="h-12 w-12 mb-4" />
+                <h2 className="text-lg font-medium mb-2">Novel Assistant</h2>
+                <p className="text-sm max-w-md">
+                  {currentVolume && currentVolume > 1
+                    ? `You're reading Volume ${currentVolume}. Ask about characters, plot points, or anything from previous volumes!`
+                    : "Upload your novel volumes to get started. I'll help you remember characters and plot details without spoilers."}
+                </p>
+              </>
+            ) : (
+              <>
+                <FileText className="h-12 w-12 mb-4" />
+                <h2 className="text-lg font-medium mb-2">Start a conversation</h2>
+                <p className="text-sm max-w-md">
+                  {context
+                    ? "Your document is loaded. Ask any question about its contents!"
+                    : "Upload a PDF document or just start chatting with the AI."}
+                </p>
+              </>
+            )}
           </div>
         ) : (
           messages.map((message) => (

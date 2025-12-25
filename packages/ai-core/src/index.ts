@@ -22,6 +22,7 @@ export {
 export { loadPdf, loadPdfFromBase64, type LoadedDocument } from "./rag/pdf-loader";
 export { chunkText, chunkByParagraphs, type TextChunk, type ChunkOptions } from "./rag/chunker";
 export { InMemoryVectorStore, type VectorDocument, type SearchResult } from "./rag/vector-store";
+export { PgVectorStore, type PgVectorDocument, type PgSearchResult } from "./rag/pg-vector-store";
 
 // Google Cloud Vision API
 export {
