@@ -1,10 +1,9 @@
 import { google } from "@ai-sdk/google";
 
 /**
- * Gemini Flash model (latest version)
- * Free tier, fast responses, good for most use cases
+ * Gemini 2.5 Flash model
  */
-export const geminiFlash = google("gemini-flash-latest");
+export const geminiFlash = google("gemini-2.5-flash");
 
 /**
  * Default model for all prototypes
