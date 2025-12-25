@@ -1,10 +1,10 @@
 # AI Prototypes
 
-> My goal: Build 10 AI prototypes in 2025
+> My goal: Build 10 AI prototypes in 2025-2026
 
-A collection of AI-powered prototypes built with Next.js, TypeScript, and Google Gemini. This monorepo serves as a personal learning lab and component library for quickly spinning up AI applications.
+A collection of AI prototypes built with Next.js, TypeScript, and Google Gemini. This monorepo serves as a personal learning lab and component library for quickly spinning up AI applications.
 
-## Prototypes
+## Prototypes (might or might not build lol)
 
 | # | Prototype | Description | Status |
 |---|-----------|-------------|--------|
@@ -119,4 +119,4 @@ MIT
 
 ---
 
-Built with curiosity | 2025
+Built with curiosity
